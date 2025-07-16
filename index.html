@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alta Performance - MH Peniche</title>
+    <meta name="description" content="Evento de dois dias no Hotel MH Peniche para maximizar sua performance.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+    /* Reset e Variáveis */
+    :root {
+        --white: #ffffff;
+        --primary: #009A76;
+        --primary-dark: #006A41;
+        --bg-dark: #0a0a0a;
+        --bg-light: #1a1a1a;
+        --text-light: #ffffff;
+        --text-muted: #b0b0b0;
+        --neon-glow: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 30px var(--primary);
+        --neon-text: 0 0 5px var(--primary), 0 0 10px var(--primary), 0 0 15px var(--primary);
+        --font-primary: 'Orbitron', monospace;
+        --font-secondary: 'Inter', sans-serif;
+    }
+    * {
+        margin:0;
+        padding:0;
+        box-sizing:border-box}
+    body {
+        font-family:var(--font-secondary);
+        background:var(--bg-dark);
+        color:var(--text-light);
+        overflow-x:hidden
+    }
+    .container {
+        max-width:1200px;
+        margin:0 auto;
+        padding:0 20px
+    }
+    /* ---------- HERO ---------- */
+    .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:4rem 20px;
+    overflow:hidden;
+    }
+
+    /* animated gradient behind the image */
+    .hero::before{
+    content:'';
+    position:absolute;
+    inset:-50%;
+    background:url('https://nossafarmaciadev.vtexassets.com/assets/vtex.file-manager-graphql/images/dcde23f2-f558-4bbe-99d0-bf2b77fa153e___a1fa8bd06590a932a7bd9d694fb0b68a.png') center/cover no-repeat;
+    animation:rotateBg 60s linear infinite;
+    z-index:-2;
+    }
+    @keyframes rotateBg{
+    0%   {transform:scale(1.15) rotate(0deg);}
+    100% {transform:scale(1.15) rotate(360deg);}
+    }
+
+    .hero-content{
+    text-align:center;
+    z-index:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:1.5rem;
+    }
+
+    .hero-logo{
+    max-width:85vw;
+    max-height:50vh;
+    width:auto;
+    height:auto;
+    filter:drop-shadow(0 0 8px var(--primary));
+    animation:float 6s ease-in-out infinite;
+    }
+
+    @keyframes float{
+    0%   {transform:translateY(0);}
+    50%  {transform:translateY(-8px);}
+    100% {transform:translateY(0);}
+    }
+
+    .hero-subtitle{
+    font-size:clamp(1rem,2.5vw,1.4rem);
+    color:var(--text-muted);
+    margin:0;
+    }
+
+    .hero-ctas{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:1rem;
+    }
+
+    .cta-button{
+    padding:1rem 2.5rem;
+    font-size:1.1rem;
+    font-weight:600;
+    border:2px solid var(--primary);
+    color:var(--text-light);
+    background:rgba(0,0,0,.35);
+    backdrop-filter:blur(4px);
+    cursor:pointer;
+    transition:all .35s ease;
+    }
+    .cta-button:hover{
+    background:var(--primary);
+    box-shadow:var(--neon-glow);
+    transform:translateY(-3px);
+    }
+
+    /* ---------- responsiveness ---------- */
+    @media(max-width: 600px){
+    .hero-ctas{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:8px;
+    }
+    .hero-ctas .cta-button {
+        width: 100%;
+        max-width: 280px;   /* optional cap */
+        min-width: 200px;   /* forces both buttons to identical width */
+    }
+    }
+    
+    /* SECTIONS */
+    section {
+        padding:5rem 0
+    }
+    .section-title {
+        font-family:var(--primary);
+        font-size:2.5rem;
+        text-align:center;
+        margin-bottom:2.5rem;
+        color:var(--primary);
+        text-shadow:var(--neon-text)
+    }
+    /* FORM */
+    .form-wrapper {
+        background:var(--bg-light);
+        max-width:700px;
+        margin:0 auto;
+        padding:2.5rem;
+        border-radius:10px
+    }
+    .form-grid {
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:1rem
+    }
+    .form-grid.full {
+        grid-template-columns:1fr
+    }
+    label {
+        font-size:.9rem;
+        color:var(--text-muted)
+    }
+    input,select,textarea {
+        width:100%;
+        padding:.9rem;
+        margin-top:.3rem;
+        background:var(--bg-dark);
+        border:1px solid var(--primary-dark);
+        color:var(--text-light);
+        border-radius:5px
+    }
+    input:focus,select:focus,textarea:focus {
+        outline:none;
+        border-color:var(--primary);
+        box-shadow:0 0 8px var(--primary)
+    }
+    button[type=submit] {
+        margin-top:1.5rem;
+        padding:1rem 2.5rem;
+        font-size:1.1rem
+    }
+    .rgpd {
+        font-size:.8rem;
+        color:var(--text-muted);
+        margin-top:.5rem;
+        display:flex;
+        align-items:start;
+        gap:.5rem
+    }
+    .rgpd input {
+        width:auto;
+        margin:0
+        }
+    /* UTILITIES */
+    .hidden{display:none}
+
+    /* ---------- HEADER ---------- */
+    header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:rgba(10,10,10,.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--primary);
+    z-index:1000;
+    }
+
+    .header-flex{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:.75rem 20px;
+    }
+
+    .logo-img{
+    height:50px;            /* adjust to taste */
+    width:auto;
+    filter:drop-shadow(0 0 4px var(--primary));
+    transition:transform .3s;
+    }
+    .logo-img:hover{transform:scale(1.05);}
+
+    /* nav links */
+    nav ul{
+    display:flex;
+    gap:1.5rem;
+    list-style:none;
+    }
+    nav a{
+    color:var(--text-light);
+    text-decoration:none;
+    font-weight:500;
+    position:relative;
+    transition:color .3s;
+    }
+    nav a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-4px;
+    width:0;
+    height:2px;
+    background:var(--primary);
+    transition:width .3s;
+    box-shadow:0 0 4px var(--primary);
+    }
+    nav a:hover{color:var(--primary);}
+    nav a:hover::after{width:100%;}
+
+    /* hamburger */
+    .menu-toggle{
+    display:none;
+    flex-direction:column;
+    background:none;
+    border:none;
+    cursor:pointer;
+    gap:4px;
+    }
+    .menu-toggle span{
+    width:24px;
+    height:3px;
+    background:var(--text-light);
+    transition:.3s;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media(max-width:768px){
+    .menu-toggle{display:flex;}
+    nav{
+        position:absolute;
+        top:100%;
+        right:20px;
+        background:var(--bg-dark);
+        border:1px solid var(--primary);
+        border-radius:6px;
+        padding:1rem 1.5rem;
+        transform:scaleY(0);
+        transform-origin:top;
+        transition:transform .3s;
+    }
+    nav ul{flex-direction:column;gap:1rem;}
+    nav.active{transform:scaleY(1);}
+    }
+
+    /* Sections */
+    .section {
+        padding: 5rem 0;
+    }
+
+    .section-title {
+        font-family: var(--font-primary);
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .neon-title {
+        color: var(--white);
+        text-shadow: var(--neon-text);
+    }
+
+    /* ========== SOBRE ========== */
+.sobre{
+    background:var(--bg-dark);padding:5rem 0;
+}
+.sobre-row{
+  display:flex;
+  align-items:center;
+  gap:3rem;
+  opacity:0;
+  animation:fadeUp 1s forwards;
+}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+
+/* Image */
+.sobre-img{
+  flex:1 1 45%;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 8px 24px rgba(0,154,118,.25);
+  transition:transform .4s;
+  max-width: 90%;
+}
+.sobre-img:hover{transform:scale(1.03)}
+.sobre-img img{width:100%;height:auto;display:block}
+
+/* Text block */
+.sobre-text{
+  flex:1 1 55%;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2rem;
+  font-size:1rem;
+  line-height:1.7;
+}
+.sobre-text h3{
+    color:var(--primary);
+    margin-bottom:.75rem;
+    font-size:1.2rem; 
+    text-align: center;
+}
+.sobre-text ul{
+    list-style:none;
+    margin:0;
+    padding:0
+}
+.sobre-text li{
+    position:relative;
+    padding-left:1.2rem;
+    margin-bottom:.5rem
+}
+.sobre-text li::before{
+  content:'▸';
+  position:absolute;
+  left:0;
+  color:var(--primary);
+}
+/* .two-col-list{
+  column-count:2;
+  column-gap:1.5rem;
+} */
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:600px){
+  .two-col-list{column-count:1}   /* back to single column on phones */
+}
+
+@media(max-width:900px){
+  .sobre-row{flex-direction:column}
+  .sobre-text{grid-template-columns:1fr}
+}
+
+    /* ========== ORADORES with IMAGE ========== */
+    @keyframes bgRotate{
+    0%   {transform:scale(1.1) rotate(0deg);}
+    100% {transform:scale(1.1) rotate(360deg);}
+    }
+
+    .oradores{
+    position:relative;
+    overflow:hidden;
+    background:url('https://nossafarmaciadev.vtexassets.com/assets/vtex.file-manager-graphql/images/38708d13-11e8-4040-be77-428dd0fd5eea___2ba2dc680ed1a1ecfd72abe557f60757.png') center/cover no-repeat;
+    }
+
+    .oradores::after{          /* rotating layer */
+    content:'';
+    position:absolute;
+    inset:-50%;              /* bigger than box to hide edges */
+    background:inherit;
+    animation:bgRotate 60s linear infinite;
+    z-index:-1;
+    }
+
+    .oradores::before{         /* overlay */
+    content:'';
+    position:absolute;
+    inset:0;
+    background:rgba(10,10,10,.65);
+    z-index:0;
+    }
+    .oradores > .container{position:relative;z-index:1}
+
+    .speakers-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+    }
+
+    .speaker-card {
+        text-align: center;
+        padding: 2rem;
+        background: var(--bg-dark);
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    .speaker-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .speaker-photo {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 1.5rem;
+    }
+
+    .speaker-photo img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .speaker-border {
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        width: calc(100% + 10px);
+        height: calc(100% + 10px);
+        border: 2px solid var(--primary);
+        border-radius: 50%;
+        box-shadow: 0 0 15px var(--primary);
+    }
+
+    .speaker-name {
+        font-family: var(--font-primary);
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .speaker-role {
+        color: var(--primary);
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    /* ========== PROGRAMAÇÃO w/ IMAGE ========== */
+    .programacao{
+    position:relative;
+    padding:5rem 0;
+    background:url('https://nossafarmaciadev.vtexassets.com/assets/vtex.file-manager-graphql/images/a782e568-f975-4f74-b00c-0f8740f8f538___bbe1b177f6bd83ee062ce270ef0ab857.png') center/cover no-repeat fixed;
+    }
+
+    /* optional dark overlay for readability */
+    .programacao::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:rgba(10,10,10,.75);   /* tweak opacity as needed */
+    z-index:0;
+    }
+
+    /* keep content above overlay */
+    .programacao > .container{position:relative;z-index:1}
+
+    .tab-button {
+        padding: 1rem 2rem;
+        background: transparent;
+        border: 2px solid var(--primary-dark);
+        color: var(--text-light);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .tab-button.active,
+    .tab-button:hover {
+        background: var(--primary);
+        box-shadow: 0 0 15px var(--primary);
+    }
+
+    .program-content {
+        display: none;
+    }
+
+    .program-content.active {
+        display: block;
+    }
+
+    .timeline {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .timeline-item {
+        display: flex;
+        gap: 2rem;
+        padding: 1.5rem 0;
+        border-left: 2px solid var(--primary);
+        padding-left: 2rem;
+        position: relative;
+    }
+
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -6px;
+        top: 2rem;
+        width: 10px;
+        height: 10px;
+        background: var(--primary);
+        border-radius: 50%;
+        box-shadow: 0 0 10px var(--primary);
+    }
+
+    .timeline-item time {
+        font-family: var(--font-primary);
+        font-weight: 600;
+        color: var(--primary);
+        min-width: 120px;
+    }
+
+    .timeline-item h3 {
+        color: var(--text-light);
+        margin-bottom: 0.5rem;
+    }
+
+    .timeline-item p {
+        color: var(--text-muted);
+    }
+
+    /* Inscrição */
+    .inscricao {
+        background: var(--bg-dark);
+    }
+
+    .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 4rem;
+    }
+
+    .price-card {
+        background: var(--bg-light);
+        padding: 2rem;
+        border-radius: 10px;
+        text-align: center;
+        position: relative;
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+    }
+
+    .price-card:hover {
+        border-color: var(--primary);
+        box-shadow: 0 0 20px rgba(0, 154, 118, 0.3);
+    }
+
+    .price-card.featured {
+        border-color: var(--primary);
+        transform: scale(1.05);
+    }
+
+    .badge {
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--primary);
+        color: var(--text-light);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+    }
+
+    .price {
+        font-family: var(--font-primary);
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin: 1rem 0;
+    }
+
+    .price-card ul {
+        list-style: none;
+        margin: 2rem 0;
+    }
+
+    .price-card li {
+        padding: 0.5rem 0;
+        color: var(--text-muted);
+    }
+
+    .registration-form,
+    .contact-form {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    input, select, textarea {
+        width: 100%;
+        padding: 1rem;
+        background: var(--bg-light);
+        border: 1px solid var(--primary-dark);
+        color: var(--text-light);
+        border-radius: 5px;
+        font-family: var(--font-secondary);
+    }
+
+    input:focus, select:focus, textarea:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 10px var(--primary);
+    }
+
+    .large {
+        width: 100%;
+        font-size: 1.2rem;
+        padding: 1.2rem;
+    }
+
+    /* ========== CONTACTOS with IMAGE ========== */
+    .contactos{
+    position:relative;
+    background:url('https://nossafarmaciadev.vtexassets.com/assets/vtex.file-manager-graphql/images/93e328a1-4b22-4107-a056-4fec4e6b65bc___f103c71813d1b3212c699a0a6870bda2.png') center/cover no-repeat;
+    }
+    .contactos::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:rgba(10,10,10,.7);   /* darken for readability */
+    z-index:0;
+    }
+    .contactos > .container{position:relative;z-index:1}
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+
+    .contact-info h3,
+    .contact-form h3 {
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+    }
+
+    .contact-info p {
+        margin-bottom: 1rem;
+    }
+
+    .neon-link {
+        color: var(--primary);
+        text-decoration: none;
+    }
+
+    .neon-link:hover {
+        text-shadow: var(--neon-text);
+    }
+
+    address {
+        font-style: normal;
+        color: var(--text-muted);
+        margin-bottom: 2rem;
+    }
+
+    /* Footer */
+    footer {
+        background: var(--bg-dark);
+        padding: 3rem 0 1rem;
+        border-top: 1px solid var(--primary);
+    }
+
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .footer-section h4 {
+        color: var(--primary);
+        margin-bottom: 1rem;
+    }
+
+    .footer-section ul {
+        list-style: none;
+    }
+
+    .footer-section a {
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+        color: var(--primary);
+    }
+
+    .social-links {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .social-links a {
+        color: var(--text-muted);
+        transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+        color: var(--primary);
+        transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid var(--primary-dark);
+        color: var(--text-muted);
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+        .menu-toggle {
+            display: flex;
+        }
+
+        nav ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: var(--bg-dark);
+            flex-direction: column;
+            padding: 1rem;
+        }
+
+        nav ul.active {
+            display: flex;
+        }
+
+        .content-grid,
+        .contact-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .form-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .countdown {
+            flex-wrap: wrap;
+        }
+
+        .pricing-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .price-card.featured {
+            transform: none;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .container {
+            padding: 0 15px;
+        }
+
+        .section {
+            padding: 3rem 0;
+        }
+
+        .timeline-item {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .timeline-item time {
+            font-size: 0.9rem;
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+    <div class="container header-flex">
+        <img src="https://nossafarmaciadev.vtexassets.com/assets/vtex.file-manager-graphql/images/7e7ea0dc-543e-4dd7-bbf2-85d69e1ace8f___71912a3682ad296edbbb2d8d22da3843.png"
+            alt="Logo Grupo Nossa Farmacia"
+            class="logo-img"/>
+
+        <nav id="nav-menu">
+        <ul>
+            <li><a href="#home">Início</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#oradores">Oradores</a></li>
+            <li><a href="#programacao">Programação</a></li>
+            <li><a href="#inscricao">Inscrição</a></li>
+            <li><a href="#contactos">Contactos</a></li>
+        </ul>
+        </nav>
+
+        <button class="menu-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+        </button>
+    </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+    <div class="hero-content">
+        <img src="https://nossafarmaciadev.vtexassets.com/assets/vtex.file-manager-graphql/images/6621bbf2-f4eb-4f39-be37-534517473168___6d3e15ec55f878238332718730a9677d.png" alt="Logo Alta Performance" class="hero-logo">
+        <p class="hero-subtitle">14 e 15 de Novembro 2025 • Hotel MH Peniche</p>
+        <div class="dual-cta">
+        <button class="cta-button neon-button" onclick="openForm('farmacia')">Sou Farmácia</button>
+        <button class="cta-button neon-button" onclick="openForm('laboratorio')">Sou Laboratório</button>
+        </div>
+    </div>
+    </section>
+
+    <!-- ========== SOBRE ========== -->
+    <section id="sobre" class="sobre">
+    <div class="container">
+        <h2 class="section-title neon-title">Sobre o Evento</h2>
+
+        <div class="sobre-row">
+        <!-- IMAGE -->
+        <div class="sobre-img">
+            <img src="https://www.hotels-pt.net/data/Photos/OriginalPhoto/12744/1274430/1274430385/mh-hotel-peniche-photo-46.JPEG"
+                alt="Ambiente Alta Performance">
+        </div>
+
+        <!-- TEXT (2 columns) -->
+        <div class="sobre-text">
+            <div class="col">
+            <p>
+                O <strong>Alta Performance</strong> é uma experiência gratuita de dois dias, projetada para
+                farmácias e laboratórios que querem escalar resultados, maximizar sinergias e preparar-se
+                para os desafios de 2026.
+            </p>
+            <p>
+                Em pleno Hotel MH Peniche, vamos combinar estratégias comprovadas, networking de alto nível
+                e momentos inspiradores frente ao Atlântico.
+            </p>
+            </div>
+
+            <div class="col">
+            <h3>O que esperar</h3>
+            <ul class="two-col-list">
+                <li>Keynotes com os maiores especialistas</li>
+                <li>Workshops práticos e imersivos</li>
+                <li>Team building & atividades outdoor</li>
+                <li>Alimentação premium & acomodações</li>
+                <li>Acesso vitalício ao grupo exclusivo</li>
+            </ul>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Oradores -->
+    <section id="oradores" class="section oradores">
+        <div class="container">
+            <h2 class="section-title neon-title">Oradores</h2>
+            <div class="speakers-grid">
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop" alt="Dr. Ricardo Silva">
+                        <div class="speaker-border"></div>
+                    </div>
+                    <h3 class="speaker-name neon-text">Dr. Ricardo Silva</h3>
+                    <p class="speaker-role">CEO & Fundador da Performance Academy</p>
+                    <p class="speaker-bio">Especialista em estratégias de crescimento empresarial com 15+ anos de experiência transformando empresas em escala global.</p>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="https://storage.alboom.ninja/sites/8425/albuns/1181124/ruteraposo_anacosta_090323-105.jpg?t=1684320978" alt="Ana Santos">
+                        <div class="speaker-border"></div>
+                    </div>
+                    <h3 class="speaker-name neon-text">Ana Santos</h3>
+                    <p class="speaker-role">Neurocientista & Coach de Performance</p>
+                    <p class="speaker-bio">Pioneira em técnicas de otimização cerebral para líderes, autora best-seller e palestrante internacional.</p>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop" alt="Miguel Costa">
+                        <div class="speaker-border"></div>
+                    </div>
+                    <h3 class="speaker-name neon-text">Miguel Costa</h3>
+                    <p class="speaker-role">Serial Entrepreneur & Investor</p>
+                    <p class="speaker-bio">Fundou 5 empresas de tecnologia, com 2 exitos internacionais. Especialista em escalagem rápida e cultura empresarial.</p>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop" alt="Carla Mendes">
+                        <div class="speaker-border"></div>
+                    </div>
+                    <h3 class="speaker-name neon-text">Carla Mendes</h3>
+                    <p class="speaker-role">Expert em Saúde & Longevidade Executiva</p>
+                    <p class="speaker-bio">Médica especializada em biohacking e otimização da performance física e mental para executivos de alto nível.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programação -->
+    <section id="programacao" class="section programacao">
+        <div class="container">
+            <h2 class="section-title neon-title">Programação</h2>
+            <div class="program-tabs">
+                <button class="tab-button active" data-day="day1">Dia 1 - 16 Ago</button>
+                <button class="tab-button" data-day="day2">Dia 2 - 17 Ago</button>
+            </div>
+            
+            <div id="day1" class="program-content active">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <time>08:00 - 09:00</time>
+                        <div>
+                            <h3>Credenciamento & Welcome Coffee</h3>
+                            <p>Recepção dos participantes e networking inicial</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <time>09:00 - 10:30</time>
+                        <div>
+                            <h3>Abertura: "O Futuro da Performance Empresarial"</h3>
+                            <p>Com Dr. Ricardo Silva</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <time>10:45 - 12:00</time>
+                        <div>
+                            <h3>Workshop: "Neurociência para Líderes"</h3>
+                            <p>Com Ana Santos</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <time>12:00 - 14:00</time>
+                        <div>
+                            <h3>Almoço de Networking</h3>
+                            <p>Restaurante do Hotel MH Peniche</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <time>14:00 - 16:00</time>
+                        <div>
+                            <h3>Painel: "Casos de Sucesso em Escalagem"</h3>
+                            <p>Com Miguel Costa e convidados</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <time>16:30 - 18:00</time>
+                        <div>
+                            <h3>Atividade: "Team Building na Praia"</h3>
+                            <p>Experiência prática de liderança</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <time>20:00 - 22:00</time>
+                        <div>
+                            <h3>Jantar de Gala</h3>
+                            <p>Com palestra surpresa</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="day2" class="program-content">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <time>08:00 - 09:00</time>
+                        <div>
+                            <h3>Morning Boost Session</h3>
+                            <p>Energização e café da manhã</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <time>09:00 - 11:00</time>
+                        <div>
+                            <h3>Masterclass: "Biohacking para Executivos"</h3>
+                            <p>Com Dr. Carla Mendes</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <time>11:15 - 12:30</time>
+                        <div>
+                            <h3>Workshop: "Criando Culturas de Alta Performance"</h3>
+                            <p>Com Miguel Costa</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <time>12:30 - 14:30</time>
+                        <div>
+                            <h3>Almoço & Sessão de Networking Estratégico</h3>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <time>14:30 - 16:00</time>
+                        <div>
+                            <h3>Lab Prático: "Sessão de Planeamento 2026"</h3>
+                            <p>Com orientação de todos os oradores</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <time>16:15 - 17:30</time>
+                        <div>
+                            <h3>Painel Final: "Próximos Passos"</h3>
+                            <p>Com todos os oradores</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <time>17:30 - 18:00</time>
+                        <div>
+                            <h3>Encerramento & Networking</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FORM SECTION -->
+    <section id="form-section" class="hidden">
+    <div class="container">
+        <h2 class="section-title">Inscrição Gratuita</h2>
+        <div class="form-wrapper">
+        <form id="registrationForm" onsubmit="submitForm(event)">
+            <input type="hidden" id="tipo" name="tipo" value="">
+            <div class="form-grid">
+            <div>
+                <label>Nome completo *</label>
+                <input type="text" name="nome" required>
+            </div>
+            <div>
+                <label>Email corporativo *</label>
+                <input type="email" name="email" required>
+            </div>
+            <div>
+                <label>Telefone *</label>
+                <input type="tel" name="telefone" required>
+            </div>
+            <div>
+                <label>NIF *</label>
+                <input type="text" name="nif" required>
+            </div>
+            <div>
+                <label>Morada *</label>
+                <input type="text" name="morada" required>
+            </div>
+            <div>
+                <label>Código-Postal *</label>
+                <input type="text" name="cp" placeholder="0000-000" required>
+            </div>
+            <div>
+                <label>Cidade *</label>
+                <input type="text" name="cidade" required>
+            </div>
+            <div>
+                <label>Distrito *</label>
+                <input type="text" name="distrito" required>
+            </div>
+            <div>
+                <label>Nome do Responsável *</label>
+                <input type="text" name="responsavel" required>
+            </div>
+            <div>
+                <label>Cargo *</label>
+                <input type="text" name="cargo" required>
+            </div>
+            </div>
+
+            <div class="rgpd">
+            <input type="checkbox" id="rgpd" required>
+            <label for="rgpd">Concordo com o tratamento dos meus dados para efeitos de gestão da inscrição (RGPD). *</label>
+            </div>
+            <!-- Dynamic pharmacy-only registrants -->
+            <div id="extraFarmacia" class="hidden">
+            <h3 style="margin-top:1.5rem;color:var(--primary)">Registos adicionais</h3>
+            <div id="farmaciaList"></div>
+            <button type="button" class="cta-button neon-button" id="addRegistrant">
+                + Adicionar novo registo
+            </button>
+            </div>
+
+    <!-- Submit button (already present) -->
+    <button type="submit" class="cta-button neon-button large">Submeter Inscrição</button>
+        </form>
+        </div>
+    </div>
+    </section>
+
+    <!-- Contactos -->
+    <section id="contactos" class="section contactos">
+        <div class="container">
+            <h2 class="section-title neon-title">Contactos</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Informações</h3>
+                    <p><strong>Email:</strong> <a href="mailto:info@altaperformance.pt" class="neon-link">info@altaperformance.pt</a></p>
+                    <p><strong>Telefone:</strong> <a href="tel:+351912345678" class="neon-link">+351 912 345 678</a></p>
+                    <p><strong>Local:</strong></p>
+                    <address>
+                        Hotel MH Peniche<br>
+                        Avenida Monsenhor Manuel Bastos<br>
+                        2520-206 Peniche, Portugal
+                    </address>
+                    <a href="https://maps.google.com/?q=Hotel+MH+Peniche" class="neon-button">Ver no Google Maps</a>
+                </div>
+                <form class="contact-form">
+                    <h3>Envie-nos uma mensagem</h3>
+                    <input type="text" placeholder="Nome" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="text" placeholder="Assunto" required>
+                    <textarea placeholder="Sua mensagem" rows="5" required></textarea>
+                    <button type="submit" class="neon-button">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Alta Performance</h4>
+                    <p>Transformando líderes através de experiências únicas de aprendizagem e networking.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#programacao">Programação</a></li>
+                        <li><a href="#inscricao">Inscrição</a></li>
+                        <li><a href="#contactos">Contactos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Redes Sociais</h4>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/gruponossafarmacia" aria-label="LinkedIn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/gruponossafarmacia/" aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.facebook.com/nossafarmaciagrupo" aria-label="Facebook">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Grupo Nossa Farmácia. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    /* ---------- PHARMACY MULTI-REGISTRANT ---------- */
+const tipoInput   = document.getElementById('tipo');
+const extraDiv    = document.getElementById('extraFarmacia');
+const farmaciaList = document.getElementById('farmaciaList');
+let counter = 0;
+
+function toggleExtra(show){
+  extraDiv.classList.toggle('hidden', !show);
+}
+
+function addRegistrant(){
+  counter++;
+  const tpl = `
+    <div class="form-grid" style="margin-top:1rem">
+      <input name="farmacia_nome_${counter}"   placeholder="Nome completo" required>
+      <input name="farmacia_cargo_${counter}"   placeholder="Cargo" required>
+    </div>`;
+  farmaciaList.insertAdjacentHTML('beforeend', tpl);
+}
+
+/* listeners */
+tipoInput.addEventListener('change', e => toggleExtra(e.target.value === 'farmacia'));
+document.getElementById('addRegistrant').addEventListener('click', addRegistrant);
+
+/* initial state */
+toggleExtra(tipoInput.value === 'farmacia');
+        
+
+    // Função para abrir o formulário de inscrição
+    function openForm(type){
+        document.getElementById('tipo').value = type;
+        document.getElementById('form-section').classList.remove('hidden');
+        document.getElementById('form-section').scrollIntoView({behavior:'smooth'});
+    }
+    function submitForm(e){
+        e.preventDefault();
+        alert('Inscrição recebida com sucesso! Entraremos em contato em breve.');
+        e.target.reset();
+        document.getElementById('form-section').classList.add('hidden');
+    }
+        // Contador Regressivo
+    const countdown = () => {
+        const eventDate = new Date('2025-08-16T09:00:00').getTime();
+        const now = new Date().getTime();
+        const timeLeft = eventDate - now;
+
+        if (timeLeft <= 0) {
+            document.getElementById('countdown').innerHTML = '<p>Evento já começou!</p>';
+            return;
+        }
+
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        document.getElementById('days').textContent = days.toString().padStart(2, '0');
+        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    };
+
+    // Atualizar contador a cada segundo
+    setInterval(countdown, 1000);
+    countdown();
+
+    // Menu Mobile
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.getElementById('nav-menu');
+
+    menuToggle.addEventListener('click', () => nav.classList.toggle('active'));
+
+    // Fechar menu ao clicar em link
+    nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('active');
+        });
+    });
+
+    /* ---------- PROGRAMAÇÃO TABS ---------- */
+    document.querySelectorAll('.tab-button').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+        // 1. remove active classes
+        document.querySelectorAll('.tab-button').forEach(b=>b.classList.remove('active'));
+        document.querySelectorAll('.program-content').forEach(c=>c.classList.remove('active'));
+        // 2. add active to the clicked button & corresponding panel
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.day).classList.add('active');
+    });
+    });
+
+    // Formulários (apenas exemplo visual)
+    document.querySelectorAll('form').forEach(form => {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Formulário enviado com sucesso! (Este é apenas um exemplo)');
+            form.reset();
+        });
+    });
+
+    // Smooth scroll para links internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Efeito de scroll no header
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 100) {
+            header.style.background = 'rgba(10, 10, 10, 0.95)';
+        } else {
+            header.style.background = 'rgba(10, 10, 10, 0.9)';
+        }
+    });
+    </script>
+</body>
+</html>
