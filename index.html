@@ -496,11 +496,11 @@
         box-shadow: 0 0 15px var(--primary);
     }
 
-    .program-content {
+    .agenda-content {
         display: none;
     }
 
-    .program-content.active {
+    .agenda-content.active {
         display: block;
     }
 
@@ -841,7 +841,6 @@
             <li><a href="#sobre">Sobre</a></li>
             <li><a href="#oradores">Oradores</a></li>
             <li><a href="#agenda">Agenda</a></li>
-            <li><a href="#inscricao">Inscrição</a></li>
             <li><a href="#contactos">Contactos</a></li>
         </ul>
         </nav>
@@ -981,12 +980,12 @@
     <section id="agenda" class="section agenda">
         <div class="container">
             <h2 class="section-title neon-title">Agenda</h2>
-            <div class="program-tabs">
+            <div class="agenda-tabs">
                 <button class="tab-button active" data-day="day1">Dia 1 - 16 Ago</button>
                 <button class="tab-button" data-day="day2">Dia 2 - 17 Ago</button>
             </div>
             
-            <div id="day1" class="program-content active">
+            <div id="day1" class="agenda-content active">
                 <div class="timeline">
                     <div class="timeline-item">
                         <time>08:00 - 09:00</time>
@@ -1040,7 +1039,7 @@
                 </div>
             </div>
             
-            <div id="day2" class="program-content">
+            <div id="day2" class="agenda-content">
                 <div class="timeline">
                     <div class="timeline-item">
                         <time>08:00 - 09:00</time>
@@ -1326,7 +1325,7 @@ toggleExtra(tipoInput.value === 'farmacia');
     btn.addEventListener('click', ()=>{
         // 1. remove active classes
         document.querySelectorAll('.tab-button').forEach(b=>b.classList.remove('active'));
-        document.querySelectorAll('.program-content').forEach(c=>c.classList.remove('active'));
+        document.querySelectorAll('.agenda-content').forEach(c=>c.classList.remove('active'));
         // 2. add active to the clicked button & corresponding panel
         btn.classList.add('active');
         document.getElementById(btn.dataset.day).classList.add('active');
