@@ -105,6 +105,7 @@
     padding:1rem 2.5rem;
     font-size:1.1rem;
     font-weight:600;
+    font-family: var(--font-primary);
     border:2px solid var(--primary);
     color:var(--text-light);
     background:rgba(0,0,0,.35);
@@ -461,15 +462,15 @@
         margin-bottom: 1rem;
     }
 
-    /* ========== PROGRAMAÇÃO w/ IMAGE ========== */
-    .programacao{
+    /* ========== AGENDA w/ IMAGE ========== */
+    .agenda{
     position:relative;
     padding:5rem 0;
     background:url('https://nossafarmaciadev.vtexassets.com/assets/vtex.file-manager-graphql/images/93e328a1-4b22-4107-a056-4fec4e6b65bc___f103c71813d1b3212c699a0a6870bda2.png') center/cover no-repeat fixed;
     }
 
     /* optional dark overlay for readability */
-    .programacao::before{
+    .agenda::before{
     content:'';
     position:absolute;
     inset:0;
@@ -478,7 +479,7 @@
     }
 
     /* keep content above overlay */
-    .programacao > .container{position:relative;z-index:1}
+    .agenda > .container{position:relative;z-index:1}
 
     .tab-button {
         padding: 1rem 2rem;
@@ -839,7 +840,7 @@
             <li><a href="#home">Início</a></li>
             <li><a href="#sobre">Sobre</a></li>
             <li><a href="#oradores">Oradores</a></li>
-            <li><a href="#programacao">Programação</a></li>
+            <li><a href="#agenda">Agenda</a></li>
             <li><a href="#inscricao">Inscrição</a></li>
             <li><a href="#contactos">Contactos</a></li>
         </ul>
@@ -976,10 +977,10 @@
         </div>
     </section>
 
-    <!-- Programação -->
-    <section id="programacao" class="section programacao">
+    <!-- Agenda -->
+    <section id="agenda" class="section agenda">
         <div class="container">
-            <h2 class="section-title neon-title">Programação</h2>
+            <h2 class="section-title neon-title">Agenda</h2>
             <div class="program-tabs">
                 <button class="tab-button active" data-day="day1">Dia 1 - 16 Ago</button>
                 <button class="tab-button" data-day="day2">Dia 2 - 17 Ago</button>
@@ -1208,7 +1209,7 @@
                     <h4>Links Rápidos</h4>
                     <ul>
                         <li><a href="#sobre">Sobre</a></li>
-                        <li><a href="#programacao">Programação</a></li>
+                        <li><a href="#agenda">Agenda</a></li>
                         <li><a href="#inscricao">Inscrição</a></li>
                         <li><a href="#contactos">Contactos</a></li>
                     </ul>
@@ -1320,7 +1321,7 @@ toggleExtra(tipoInput.value === 'farmacia');
         });
     });
 
-    /* ---------- PROGRAMAÇÃO TABS ---------- */
+    /* ---------- Agenda TABS ---------- */
     document.querySelectorAll('.tab-button').forEach(btn=>{
     btn.addEventListener('click', ()=>{
         // 1. remove active classes
