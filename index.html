@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alta Performance - MH Peniche</title>
+    <title>Nossa Farmácia Connect - Alta Performance</title>
     <meta name="description" content="Evento de dois dias no Hotel MH Peniche para maximizar sua performance.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,6 +47,7 @@
     justify-content:center;
     padding:4rem 20px;
     overflow:hidden;
+    z-index: 1;
     }
 
     /* animated gradient behind the image */
@@ -740,27 +741,17 @@
         color: var(--text-muted);
     }
 
+    /* Footer */
+    .logo-footer-img{
+    height:80px;            /* adjust to taste */
+    width:auto;
+    filter:drop-shadow(0 0 4px var(--primary));
+    transition:transform .3s;
+    }
+    .logo-footer-img:hover{transform:scale(1.05);}
+
     /* Responsividade */
-    @media (max-width: 768px) {
-        .menu-toggle {
-            display: flex;
-        }
-
-        nav ul {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background: var(--bg-dark);
-            flex-direction: column;
-            padding: 1rem;
-        }
-
-        nav ul.active {
-            display: flex;
-        }
-
+    @media (max-width: 1024px) {
         .content-grid,
         .contact-grid {
             grid-template-columns: 1fr;
@@ -805,6 +796,34 @@
             font-size: 0.9rem;
         }
     }
+    .countdown{
+    display:flex;
+    justify-content:center;
+    gap:1.2rem;
+    font-family:var(--font-primary);
+    margin-top:.5rem;
+    }
+    .time-unit{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    min-width:60px;
+    }
+    .time-unit span{
+    font-size:clamp(1.8rem,4vw,2.5rem);
+    font-weight:900;
+    color:var(--white);
+    text-shadow:var(--neon-text);
+    }
+    .time-unit small{
+    font-size:.7rem;
+    color:var(--text-muted);
+    letter-spacing:.1em;
+    }
+    @media(max-width:400px){
+    .countdown{gap:.6rem;}
+    .time-unit{min-width:45px;}
+    }
     </style>
 </head>
 <body>
@@ -837,8 +856,34 @@
     <!-- HERO -->
     <section class="hero">
     <div class="hero-content">
-        <img src="https://nossafarmaciadev.vtexassets.com/assets/vtex.file-manager-graphql/images/6621bbf2-f4eb-4f39-be37-534517473168___6d3e15ec55f878238332718730a9677d.png" alt="Logo Alta Performance" class="hero-logo">
-        <p class="hero-subtitle">14 e 15 de Novembro 2025 • Hotel MH Peniche</p>
+        <img src="https://nossafarmaciadev.vtexassets.com/assets/vtex.file-manager-graphql/images/6621bbf2-f4eb-4f39-be37-534517473168___6d3e15ec55f878238332718730a9677d.png"
+            alt="Logo Alta Performance" class="hero-logo">
+
+        <!-- COUNTDOWN + SUBTITLE -->
+        <div style="text-align:center; margin-bottom:1rem;">
+        <p class="hero-subtitle" style="margin-bottom:.5rem;">
+            14 e 15 de Novembro 2025 • Hotel MH Peniche
+        </p>
+        <div id="countdown" class="countdown">
+            <div class="time-unit">
+            <span id="days">00</span>
+            <small>DIAS</small>
+            </div>
+            <div class="time-unit">
+            <span id="hours">00</span>
+            <small>HORAS</small>
+            </div>
+            <div class="time-unit">
+            <span id="minutes">00</span>
+            <small>MIN</small>
+            </div>
+            <div class="time-unit">
+            <span id="seconds">00</span>
+            <small>SEG</small>
+            </div>
+        </div>
+        </div>
+
         <div class="dual-cta">
         <button class="cta-button neon-button" onclick="openForm('farmacia')">Sou Farmácia</button>
         <button class="cta-button neon-button" onclick="openForm('laboratorio')">Sou Laboratório</button>
@@ -1151,6 +1196,11 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
+                    <img src="https://nossafarmaciadev.vtexassets.com/assets/vtex.file-manager-graphql/images/7e7ea0dc-543e-4dd7-bbf2-85d69e1ace8f___71912a3682ad296edbbb2d8d22da3843.png"
+            alt="Logo Grupo Nossa Farmacia"
+            class="logo-footer-img"/>
+                </div>
+                <div class="footer-section">
                     <h4>Alta Performance</h4>
                     <p>Transformando líderes através de experiências únicas de aprendizagem e networking.</p>
                 </div>
@@ -1233,7 +1283,7 @@ toggleExtra(tipoInput.value === 'farmacia');
     }
         // Contador Regressivo
     const countdown = () => {
-        const eventDate = new Date('2025-08-16T09:00:00').getTime();
+        const eventDate = new Date('2025-11-14T09:00:00').getTime();
         const now = new Date().getTime();
         const timeLeft = eventDate - now;
 
